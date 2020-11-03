@@ -1,0 +1,30 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Aulas</h1>
+    <a href="/encargado/fAulaAgregar" class="btn btn-primary mb-2">Agregar</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID de Aula</th>
+                <th>Capacidad</th>
+                <th>Estado</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% aulas.forEach(aulas => { %>
+            <tr>
+                <td><%= aulas.idaula %></td>
+                <td><%= aulas.capacidad %></td>
+                <td><%= aulas.estado %></td>
+                <td>
+                    <a href="/encargado/fAulaEditar/<%= aulas.idaula %>" class="btn btn-warning">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+            <% })%>
+        </tbody>
+    </table>
+</div>
+<%- include("../footer"); %>

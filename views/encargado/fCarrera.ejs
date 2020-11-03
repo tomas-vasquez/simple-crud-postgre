@@ -1,0 +1,32 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Carreras</h1>
+    <a href="/encargado/fCarreraAgregar" class="btn btn-primary mb-2">Agregar</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Codigo Carrera</th>
+                <th>Plan Carrera</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% carreras.forEach(carreras => { %>
+            <tr>
+                <td><%= carreras.codigoc %></td>
+                <td><%= carreras.planc %></td>
+                <td><%= carreras.nombrecarrera %></td>
+                <td><%= carreras.estado %></td>
+                <td>
+                    <a href="/encargado/fCarreraEditar/<%= carreras.codigoc %><%= carreras.planc %>" class="btn btn-warning">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+            <% })%>
+        </tbody>
+    </table>
+</div>
+<%- include("../footer"); %>

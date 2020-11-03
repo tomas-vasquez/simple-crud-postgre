@@ -1,0 +1,83 @@
+<%- include("../header"); %>
+    <h1>Register</h1>
+
+    
+    <form action="/estudiante/estRegistro" method="POST">
+      <div>
+        <input 
+        type="text" 
+        id="nombreEstudiante" 
+        name="nombreEstudiante" 
+        placeholder="Nombres" 
+        required />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="apellidoPEstudiante"
+          name="apellidoPEstudiante"
+          placeholder="Apellido Paterno"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="apellidoMEstudiante"
+          name="apellidoMEstudiante"
+          placeholder="Apellido Materno"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="carnetEstudiante"
+          name="carnetEstudiante"
+          placeholder="Carnet de Identidad"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="date"
+          id="fechaNacEstudiante"
+          name="fechaNacEstudiante"
+          placeholder="Fecha de Nacimiento"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="codEstudiante"
+          name="codEstudiante"
+          placeholder="Numero de Registro"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          placeholder="Confirmar Contraseña"
+          required
+        />
+      </div>
+      <div>
+        <input type="submit" value="Registrar" />
+      </div>
+
+      <a href="/estudiante">Ya registrado? Ingrese aquí</a>
+    </form>
+    <%- include("../footer"); %>

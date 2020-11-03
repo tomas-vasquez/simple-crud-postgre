@@ -1,0 +1,83 @@
+<%- include("../header"); %>
+    <h1>Register</h1>
+
+    
+    <form action="/encargado/encRegistro" method="POST">
+      <div>
+        <input 
+        type="text" 
+        id="nombreEncargado" 
+        name="nombreEncargado" 
+        placeholder="Nombres" 
+        required />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="apellidoPEncargado"
+          name="apellidoPEncargado"
+          placeholder="Apellido Paterno"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="apellidoMEncargado"
+          name="apellidoMEncargado"
+          placeholder="Apellido Materno"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="carnetEncargado"
+          name="carnetEncargado"
+          placeholder="Carnet de Identidad"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="date"
+          id="fechaNacEncargado"
+          name="fechaNacEncargado"
+          placeholder="Fecha de Nacimiento"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="codEncargado"
+          name="codEncargado"
+          placeholder="Codigo"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          placeholder="Confirmar Contraseña"
+          required
+        />
+      </div>
+      <div>
+        <input type="submit" value="Registrar" />
+      </div>
+
+      <a href="/encargado">Ya registrado? Ingrese aquí</a>
+    </form>
+    <%- include("../footer"); %>

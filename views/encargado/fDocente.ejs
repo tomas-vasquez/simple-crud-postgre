@@ -1,0 +1,34 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Carreras</h1>
+    <a href="/encargado/fDocenteAgregar" class="btn btn-primary mb-2">Agregar</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Codigo Docente</th>
+                <th>Nombres</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Estado</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% docentes.forEach(docentes => { %>
+            <tr>
+                <td><%= docentes.codigod %></td>
+                <td><%= docentes.nombres %></td>
+                <td><%= docentes.apellidop %></td>
+                <td><%= docentes.apellidom %></td>
+                <td><%= docentes.estado %></td>
+                <td>
+                    <a href="/encargado/fDocenteEditar/<%= docentes.codigod %>" class="btn btn-warning">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+            <% })%>
+        </tbody>
+    </table>
+</div>
+<%- include("../footer"); %>

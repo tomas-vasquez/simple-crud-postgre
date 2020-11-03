@@ -1,0 +1,42 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Agregar Docentes</h1>
+    <form method="post" action="/encargado/fDocenteInsertar">
+        <input value="<%= user%>" name="user" type="hidden">
+        <div class="form-group">
+            <label for="codigo">Codigo Docente</label>
+            <input required id="codigod" placeholder="Codigo Docente" class="form-control" type="number"
+                name="codigod">
+        </div>
+        <div class="form-group">
+            <label for="Nombres">Nombres</label>
+            <input required id="nombres" placeholder="Nombres" class="form-control" type="text"
+                name="nombres">
+        </div>
+        <div class="form-group">
+            <label for="Apellidop">Apellido Paterno</label>
+            <input required id="apellidop" placeholder="Apellido paterno del docente" class="form-control" type="text"
+                name="apellidop">
+        </div>
+        <div class="form-group">
+            <label for="Apellidom">Apellido Materno</label>
+            <input required id="apellidom" placeholder="Apellido materno del docente" class="form-control" type="text"
+                name="apellidom">
+        </div>
+        <div class="form-group">
+            <label for="Sexo">Sexo</label>
+            <input required id="sexo" placeholder="Sexo" class="form-control" type="text"
+                name="sexo">
+        </div>
+        <div class="form-group">
+            <label for="Correo">Correo Electrónico</label>
+            <input required id="correo" placeholder="Correo electrónico" class="form-control" type="email"
+                name="correo">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success">Guardar</button>
+            &nbsp;<a href="/encargado/fDocente" class="btn btn-primary">Volver</a>
+        </div>
+    </form>
+</div>
+<%- include("../footer"); %>

@@ -1,0 +1,42 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Carga Horaria</h1>
+    <a href="/encargado/fCargaHAgregar" class="btn btn-primary mb-2">Agregar</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Carga Horaria</th>
+                <th>Descripcion</th>
+                <th>Semestre</th>
+                <th>Carrera</th>
+                <th>Materia</th>
+                <th>Docente</th>
+                <th>Periodo</th>
+                <th>Duracion</th>
+                <th>Aula</th>
+                <th>Dia</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cargah.forEach(cargah => { %>
+            <tr>
+                <td><%= cargah.idcargah %></td>
+                <td><%= cargah.descripcion %></td>
+                <td><%= cargah.idsemestre %></td>
+                <td><%= cargah.codigoc %>-<%= cargah.planc %></td>
+                <td><%= cargah.siglam %>-<%= cargah.grupom %></td>
+                <td><%= cargah.codigod %></td>
+                <td><%= cargah.idperiodo %></td>
+                <td><%= cargah.duracion %></td>
+                <td><%= cargah.idaula %></td>
+                <td><%= cargah.iddia %></td>
+                <td>
+                    <a href="/encargado/fCargaHEditar/<%= cargah.idcargah %>" class="btn btn-warning">Editar</a>
+                </td>
+            </tr>
+            <% })%>
+        </tbody>
+    </table>
+</div>
+<%- include("../footer"); %>

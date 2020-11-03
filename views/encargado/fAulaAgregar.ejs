@@ -1,0 +1,22 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Agregar Aulas</h1>
+    <form method="post" action="/encargado/fAulaInsertar">
+        <input value="<%= user%>" name="user" type="hidden">
+        <div class="form-group">
+            <label for="nombre">Agregar</label>
+            <input required id="id" placeholder="Nombre de Aula" class="form-control" type="text"
+                name="id">
+        </div>
+        <div class="form-group">
+            <label for="precio">Capacidad</label>
+            <input required id="capacidad" placeholder="Capacidad del Aula" class="form-control" type="number"
+                name="capacidad">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success">Guardar</button>
+            &nbsp;<a href="/encargado/fAula" class="btn btn-primary">Volver</a>
+        </div>
+    </form>
+</div>
+<%- include("../footer"); %>

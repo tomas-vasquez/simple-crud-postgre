@@ -1,0 +1,114 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Agregar Carga Horaria</h1>
+    <form method="post" action="/encargado/fCargaHInsertar">
+        <input value="<%= user%>" name="user" type="hidden">
+        <div class="form-group">
+            <label for="codigo">Sigla</label>
+            <input required id="idcargah" placeholder="ID Carga Horaria" class="form-control" type="text"
+                name="idcargah">
+        </div>
+        <div class="form-group">
+            <label for="plan">Descripcion</label>
+            <input required id="descripcion" placeholder="Descripcion" class="form-control" type="text"
+                name="descripcion">
+        </div>
+        <div>
+            <select class="selectpicker" data-style="btn-info" name="carreranums">
+                <optgroup label="Select Table">
+                    <option value="">Seleccione carrera</option>
+                    <% carreras.forEach(carreras => { %>
+                    <option value="<%= carreras.codigoc %><%= carreras.planc %>"><%= carreras.nombrecarrera %></option>
+                    <% }) %>
+                </optgroup>
+            </select>
+        </div>
+      <br>
+     </br>
+     <div>
+        <select class="selectpicker" data-style="btn-info" name="materianums">
+            <optgroup label="Select Table">
+                <option value="">Seleccione materia</option>
+                <% materias.forEach(materias => { %>
+                <option value="<%= materias.siglam %><%= materias.grupom %>"><%= materias.nombremat %></option>
+                <% }) %>
+            </optgroup>
+        </select>
+    </div>
+  <br>
+ </br>
+ <div>
+    <select class="selectpicker" data-style="btn-info" name="codigod">
+        <optgroup label="Select Table">
+            <option value="">Seleccione docente</option>
+            <% docentes.forEach(docentes => { %>
+            <option value="<%= docentes.codigod %>"><%= docentes.nombres %> <%= docentes.apellidop %> <%= docentes.apellidom %></option>
+            <% }) %>
+        </optgroup>
+    </select>
+</div>
+<br>
+</br>
+<div>
+    <select class="selectpicker" data-style="btn-info" name="idperiodo">
+        <optgroup label="Select Table">
+            <option value="">Seleccione periodo</option>
+            <% periodos.forEach(periodos => { %>
+            <option value="<%= periodos.idperiodo %>"><%= periodos.horaini %></option>
+            <% }) %>
+        </optgroup>
+    </select>
+</div>
+<br>
+</br>
+<div class="form-group">
+    <label for="nombre">Duracion</label>
+    <input required id="duracion" placeholder="Duracion" class="form-control" type="text"
+        name="duracion">
+</div>
+<br>
+</br>
+<div>
+        <select class="selectpicker" data-style="btn-info" name="idsemestre">
+            <optgroup label="Select Table">
+                <option value="">Seleccione semestre</option>
+                <% semestres.forEach(semestres => { %>
+                <option value="<%= semestres.idsemestre %>"><%= semestres.nombres %></option>
+                <% }) %>
+            </optgroup>
+        </select>
+</div>
+  <br>
+ </br>
+ <div>
+    <select class="selectpicker" data-style="btn-info" name="idaula">
+        <optgroup label="Select Table">
+            <option value="">Seleccione aula</option>
+            <% aulas.forEach(aulas => { %>
+            <option value="<%= aulas.idaula %>"><%= aulas.idaula %></option>
+            <% }) %>
+        </optgroup>
+    </select>
+</div>
+<br>
+</br>
+<div>
+    <select class="selectpicker" data-style="btn-info" name="iddia">
+        <optgroup label="Select Table">
+            <option value="">Seleccione dia</option>
+            <% dias.forEach(dias => { %>
+            <option value="<%= dias.iddia %>"><%= dias.nombred %></option>
+            <% }) %>
+        </optgroup>
+    </select>
+</div>
+<br>
+</br>
+        <div class="form-group">
+            <button class="btn btn-success">Guardar</button>
+            &nbsp;<a href="/encargado/fMateria" class="btn btn-primary">Volver</a>
+        </div>
+        
+    </form>
+</div>
+<%- include("../footer"); %>
