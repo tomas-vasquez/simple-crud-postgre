@@ -1,10 +1,9 @@
-const { Pool } = require("pg")
-// Coloca aquí tus credenciales
+require("dotenv").config();
+const { Pool } = require("pg");
+
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "proyHorario1",
-  password: "1234",
-  port: 5432,
+  connectionString: process.env.POSGRE_URL,
+  ssl: true,
 });
+
 module.exports = pool;
