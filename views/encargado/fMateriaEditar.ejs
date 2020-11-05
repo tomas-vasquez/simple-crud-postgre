@@ -2,8 +2,8 @@
 <div class="col-12">
     <h1>Editar <%= materias.nombremat %></h1>
     <form method="post" action="/encargado/fMateriaActualizar">
-        <input value="<%= materias.siglam %>" name="siglam" type="text">
-        <input value="<%= materias.grupom %>" name="grupom" type="text">
+        <input value="<%= materias.siglam %>" name="siglam" type="hidden">
+        <input value="<%= materias.grupom %>" name="grupom" type="hidden">
         <input value="<%= user%>" name="user" type="hidden">
         <div class="form-group">
             <label for="precio">Estado</label>

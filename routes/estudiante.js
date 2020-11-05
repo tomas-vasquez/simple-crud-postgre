@@ -7,7 +7,7 @@ const flash = require("express-flash");
 const session = require("express-session");
 const initializePassport = require("../passportConfig");
 
-const encargadoModel = require("../models/encargado");
+const estudianteModel = require("../models/estudiante");
 initializePassport(passport);
 
 router.use(
@@ -32,8 +32,100 @@ router.get('/estRegistro', checkAuthenticated, function (req, res, next){
 })
 
 router.get('/estDashboard', checkNotAuthenticated, function (req, res, next){
-    res.render("estudiante/estDashboard", {user: req.user.idusuario})
+  estudianteModel
+  .obtenerDocentes()
+  .then(docentes => {
+      res.render("estudiante/estDashboard", {
+          docentes: docentes,
+          user: req.user.idusuario,
+      });
+  })
 })
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.render('estudiante/estLogin', { message: "You have logged out successfully" });
+});
+
+/////Middleware DOcente
+
+/*router.post('/fDocenteBuscar', checkNotAuthenticated, function (req, res, next){
+  const obj = JSON.stringify(req.body);
+  const docente = obj.slice(12,16)
+  console.log(docente);
+  estudianteModel
+  .obtenerInfoDocenteFromCH(docente)
+  .then(infodocente => {
+      res.render("estudiante/fDocenteHorario", {
+          infodocente: infodocente,
+          user: req.user.idusuario,
+      });
+  })
+})*/
+
+router.post('/fDocenteBuscar', checkNotAuthenticated, function (req, res, next){
+  const obj = JSON.stringify(req.body);
+  const docente = obj.slice(12,16)
+  console.log(docente);
+  estudianteModel
+  .obtenerInfoDocenteFromCH(docente)
+  .then(infodocente => estudianteModel.obtenerCHDocenteLunes(docente)
+  .then(lunes => estudianteModel.obtenerCHDocenteMartes(docente)
+  .then(martes => estudianteModel.obtenerCHDocenteMiercoles(docente)
+  .then(miercoles => estudianteModel.obtenerCHDocenteJueves(docente)
+  .then(jueves => estudianteModel.obtenerCHSDocenteViernes(docente)
+  .then(viernes => estudianteModel.obtenerCHSemestreSabado(docente)
+  .then(sabado => res.render("estudiante/fDocenteHorario", {
+          infodocente: infodocente,
+          lunes: lunes,
+          martes: martes,
+          miercoles, miercoles,
+          jueves: jueves,
+          viernes: viernes,
+          sabado: sabado,
+          user: req.user.idusuario,
+      })
+      )
+     )
+    )
+   )
+  )
+ )
+)
+})
+
+router.post('/fSemestreHorario', checkNotAuthenticated, function (req, res, next){
+  const { codigoc, planc, semestre} = req.body;
+  console.log(codigoc, planc, semestre);
+  estudianteModel
+  .obtenerCargaHorariaPorSemestreMat(codigoc, planc, semestre)
+  .then(horariosem => estudianteModel.obtenerCHSemestreLunes(codigoc, planc, semestre)
+  .then(lunes => estudianteModel.obtenerCHSemestreMartes(codigoc, planc, semestre)
+  .then(martes => estudianteModel.obtenerCHSemestreMiercoles(codigoc, planc, semestre)
+  .then(miercoles => estudianteModel.obtenerCHSemestreJueves(codigoc, planc, semestre)
+  .then(jueves => estudianteModel.obtenerCHSemestreViernes(codigoc, planc, semestre)
+  .then(viernes => estudianteModel.obtenerCHSemestreSabado(codigoc, planc, semestre)
+  .then(sabado => res.render("estudiante/fSemestreHorario", {
+          horariosem: horariosem,
+          lunes: lunes,
+          martes: martes,
+          miercoles, miercoles,
+          jueves: jueves,
+          viernes: viernes,
+          sabado: sabado,
+          user: req.user.idusuario,
+      })
+      )
+     )
+    )
+   )
+  )
+ )
+)
+})
+
+
+
 
 router.post("/estRegistro", async (req, res) => {
     let { nombreEstudiante, apellidoPEstudiante, apellidoMEstudiante, carnetEstudiante, fechaNacEstudiante, codEstudiante, password, password2 } = req.body;
@@ -64,7 +156,7 @@ router.post("/estRegistro", async (req, res) => {
     }
   
     if (errors.length > 0) {
-      res.render("/estRegistro", { errors, nombreEstudiante, apellidoPEstudiante, apellidoMEstudiante, carnetEstudiante, fechaNacEstudiante, codEstudiante, password, password2 });
+      res.render("estudiante/estRegistro", { errors, nombreEstudiante, apellidoPEstudiante, apellidoMEstudiante, carnetEstudiante, fechaNacEstudiante, codEstudiante, password, password2 });
     } else {
       hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
@@ -80,7 +172,7 @@ router.post("/estRegistro", async (req, res) => {
           console.log(results.rows);
   
           if (results.rows.length > 0) {
-            return res.render("/estRegistro", {
+            return res.render("estudiante/estRegistro", {
               message: "El numero de registro ya esta registrado"
             });
           } else {

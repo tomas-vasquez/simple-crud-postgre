@@ -1,15 +1,20 @@
 <%- include("../header"); %>
 <div class="col-12">
-    <h1>Dashboard</h1>
-
-    <a href="/encargado">Logout</a>
-
-    <a href="/encargado/fAula" class="btn btn-primary mb-2">Aula</a>
-    <a href="/encargado/fCargaH" class="btn btn-primary mb-2">Carga Horaria</a>
-    <a href="/encargado/fCarrera" class="btn btn-primary mb-2">Carrera</a>
-    <a href="/encargado/fDocente" class="btn btn-primary mb-2">Docente</a>
-    <a href="/encargado/fMateria" class="btn btn-primary mb-2">Materia</a>
-    <h4>Hello <%= user %></h4>
+  <div class="container text right">
+    <a href="/encargado/logout" class="btn btn-danger btn-sm btn float-right">Logout</a>
+  </div>
+    <h2>Bienvenido al dashboard usuario <%= user %></h2>
     
+    <hr class="solid">
+    <a href="/encargado/fAula" class="btn btn-primary mb-2">Gestionar Aula</a>
+    <a href="/encargado/fCargaH" class="btn btn-primary mb-2">Gestionar Carga Horaria</a>
+    <a href="/encargado/fCarrera" class="btn btn-primary mb-2">Gestionar Carrera</a>
+    <a href="/encargado/fDocente" class="btn btn-primary mb-2">Gestionar Docente</a>
+    <a href="/encargado/fMateria" class="btn btn-primary mb-2">Gestionar Materia</a>
+
 </div>
+
+
+
+
     <%- include("../footer"); %>

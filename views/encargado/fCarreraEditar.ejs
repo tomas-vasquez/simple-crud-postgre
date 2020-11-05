@@ -2,8 +2,8 @@
 <div class="col-12">
     <h1>Editar <%= carreras.nombrecarrera %></h1>
     <form method="post" action="/encargado/fCarreraActualizar">
-        <input value="<%= carreras.codigoc %>" name="codigoc" type="text">
-        <input value="<%= carreras.planc %>" name="planc" type="text">
+        <input value="<%= carreras.codigoc %>" name="codigoc" type="hidden">
+        <input value="<%= carreras.planc %>" name="planc" type="hidden">
         <input value="<%= user%>" name="user" type="hidden">
         <div class="form-group">
             <label for="precio">Estado</label>

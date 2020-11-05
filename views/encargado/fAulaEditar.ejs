@@ -2,8 +2,8 @@
 <div class="col-12">
     <h1>Editar <%= aulas.idaula %></h1>
     <form method="post" action="/encargado/fAulaActualizar">
-        <input value="<%= aulas.idaula %>" name="id" type="text">
-        <input value="<%= user%>" name="user" type="text">
+        <input value="<%= aulas.idaula %>" name="id" type="hidden">
+        <input value="<%= user%>" name="user" type="hidden">
         <div class="form-group">
             <label for="precio">Estado</label>
             <input value="<%= aulas.estado %>" required id="estado" placeholder="Estado"

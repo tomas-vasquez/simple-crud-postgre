@@ -8,7 +8,6 @@ const session = require("express-session");
 const initializePassport = require("../passportConfig");
 
 const encargadoModel = require("../models/encargado");
-const encargado = require('../models/encargado');
 initializePassport(passport);
 
 router.use(
@@ -36,6 +35,10 @@ router.get('/encDashboard', checkNotAuthenticated, function (req, res, next){
     res.render("encargado/encDashboard", {user: req.user.idusuario})
 })
 
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.render('encargado/encLogin', { message: "You have logged out successfully" });
+});
 //Middleware Aula
 
 router.get('/fAula', checkNotAuthenticated, function (req, res, next) {
@@ -518,7 +521,7 @@ router.post("/encRegistro", async (req, res) => {
     }
   
     if (errors.length > 0) {
-      res.render("/encRegistro", { errors, nombreEncargado, apellidoPEncargado, apellidoMEncargado, carnetEncargado, fechaNacEncargado, codEncargado, password, password2 });
+      res.render("encargado/encRegistro", { errors, nombreEncargado, apellidoPEncargado, apellidoMEncargado, carnetEncargado, fechaNacEncargado, codEncargado, password, password2 });
     } else {
       hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
@@ -534,7 +537,7 @@ router.post("/encRegistro", async (req, res) => {
           console.log(results.rows);
   
           if (results.rows.length > 0) {
-            return res.render("/encRegistro", {
+            return res.render("encargado/encRegistro", {
               message: "El codigo de encargado ya esta registrado"
             });
           } else {

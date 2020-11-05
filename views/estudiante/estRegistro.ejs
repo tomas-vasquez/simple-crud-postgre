@@ -1,5 +1,5 @@
 <%- include("../header"); %>
-    <h1>Register</h1>
+    <h1>Registro⠀⠀⠀</h1>
 
     
     <form action="/estudiante/estRegistro" method="POST">
@@ -9,6 +9,7 @@
         id="nombreEstudiante" 
         name="nombreEstudiante" 
         placeholder="Nombres" 
+        class = "form-control"
         required />
       </div>
       <div>
@@ -17,6 +18,7 @@
           id="apellidoPEstudiante"
           name="apellidoPEstudiante"
           placeholder="Apellido Paterno"
+          class = "form-control"
           required
         />
       </div>
@@ -26,6 +28,7 @@
           id="apellidoMEstudiante"
           name="apellidoMEstudiante"
           placeholder="Apellido Materno"
+          class = "form-control"
           required
         />
       </div>
@@ -35,6 +38,7 @@
           id="carnetEstudiante"
           name="carnetEstudiante"
           placeholder="Carnet de Identidad"
+          class = "form-control"
           required
         />
       </div>
@@ -44,6 +48,7 @@
           id="fechaNacEstudiante"
           name="fechaNacEstudiante"
           placeholder="Fecha de Nacimiento"
+          class = "form-control"
           required
         />
       </div>
@@ -53,6 +58,7 @@
           id="codEstudiante"
           name="codEstudiante"
           placeholder="Numero de Registro"
+          class = "form-control"
           required
         />
       </div>
@@ -62,6 +68,7 @@
           id="password"
           name="password"
           placeholder="Contraseña"
+          class = "form-control"
           required
         />
       </div>
@@ -71,13 +78,23 @@
           id="password2"
           name="password2"
           placeholder="Confirmar Contraseña"
+          class = "form-control"
           required
         />
       </div>
-      <div>
-        <input type="submit" value="Registrar" />
+      <div class="input-group-prepend">
+        <div>
+          <input type="submit" class ="btn btn-primary btn-sm" value="Registrar" />
+        </div>
+        <div>
+          <a href="/estudiante" class = "btn btn-outline-primary btn-sm">Ya registrado? Ingrese aquí</a>
+        </div>
       </div>
+   </form>
 
-      <a href="/estudiante">Ya registrado? Ingrese aquí</a>
-    </form>
+   ul>
+      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+      <li><%= error.message %></li>
+      <% }) %> <% } %>
+    </ul>
     <%- include("../footer"); %>

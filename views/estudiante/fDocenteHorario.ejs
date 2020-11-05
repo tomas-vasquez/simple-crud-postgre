@@ -1,0 +1,56 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Horario del docente 
+        <%= infodocente.nombres %> <%= infodocente.apellidop %>
+        </h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <table class="table table-bordered table-hover table  ">
+                    <tr>
+                        <tr>
+                            <th>Lunes</th>
+                            <% lunes.forEach(lunes => { %>
+                                <td><%= lunes.siglam %> <%= lunes.grupom %> <%= lunes.i %> hasta <%= lunes.fin %> en el <%= lunes.idaula %></td>
+                            <% })%>
+                        </tr>
+                        <tr>
+                            <th>Martes</th>
+                            <% martes.forEach(martes => { %>
+                                <td><%= martes.siglam %> <%= martes.grupom %> <%= martes.i %> hasta <%= martes.fin %> en el <%= martes.idaula %></td>
+                            <% })%>
+                        </tr>
+                        <tr>
+                            <th>Miercoles</th>
+                            <% miercoles.forEach(miercoles => { %>
+                                <td><%= miercoles.siglam %> <%= miercoles.grupom %> <%= miercoles.i %> hasta <%= miercoles.fin %> en el <%= miercoles.idaula %></td>
+                            <% })%>
+                        </tr>
+                        <tr>
+                            <th>Jueves</th>
+                            <% jueves.forEach(jueves => { %>
+                                <td><%= jueves.siglam %> <%= jueves.grupom %> <%= jueves.i %> hasta <%= jueves.fin %> en el <%= jueves.idaula %></td>
+                            <% })%>
+                        </tr>
+                        <tr>
+                            <th>Viernes</th>
+                            <% viernes.forEach(viernes => { %>
+                                <td><%= viernes.siglam %> <%= viernes.grupom %> <%= viernes.i %> hasta <%= viernes.fin %> en el <%= viernes.idaula %></td>
+                            <% })%>
+                        </tr>
+                        <tr>
+                            <th>Sabado</th>
+                            <% sabado.forEach(sabado => { %>
+                                <td><%= sabado.siglam %> <%= sabado.grupom %> <%= sabado.i %> hasta <%= sabado.fin %> en el <%= sabado.idaula %></td>
+                            <% })%>
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+   
+    <a href="/estudiante/estDashboard" class="btn btn-primary mb-2">Volver</a>    
+</div>
+<%- include("../footer"); %>

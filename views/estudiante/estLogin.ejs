@@ -1,11 +1,5 @@
 <%- include("../header"); %>
-    <h1>Login</h1>
-
-    <ul>
-      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
-      <li><%= error.message %></li>
-      <% }) %> <% } %>
-    </ul>
+    <h1>Login⠀⠀⠀</h1>
 
     <form action="/estudiante/estLogin" method="POST">
       <div>
@@ -14,6 +8,7 @@
           id="codigo"
           name="codigo"
           placeholder="Numero de Registro"
+          class = "form-control"
           required
         />
       </div>
@@ -23,13 +18,33 @@
           id="password"
           name="password"
           placeholder="Password"
+          class = "form-control"
           required
         />
       </div>
-      <div>
-        <input type="submit" value="Login" />
+      <div class="input-group-prepend">
+       <div>
+        <input type="submit" class = "btn btn-primary btn-sm" value="Login" />
+       </div>
+        <a href="/estudiante/estRegistro" class = "btn btn-outline-primary btn-sm">Register</a>
       </div>
-
-      <a href="/estudiante/estRegistro">Register</a>
     </form>
+
+    <ul>
+      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+      <li><%= error.message %></li>
+      <% }) %> <% } %>
+    </ul>
+    
+    <ul>
+      <% if(messages.success_msg) { %>
+      <li><%= messages.success_msg %></li>
+      <% } %>
+    </ul>
+    
+    <ul>
+      <% if (messages.error) { %>
+      <li><%= messages.error %></li>
+      <% } %>
+    </ul>
 <%- include("../footer"); %>

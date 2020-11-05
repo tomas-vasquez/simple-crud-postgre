@@ -2,7 +2,7 @@
 <div class="col-12">
     <h1>Editar <%= cargah.idcargah %></h1>
     <form method="post" action="/encargado/fCargaHActualizar">
-        <input value="<%= cargah.idcargah %>" name="idcargah" type="text">
+        <input value="<%= cargah.idcargah %>" name="idcargah" type="hidden">
         <input value="<%= user%>" name="user" type="hidden">
         <div class="form-group">
             <label for="precio">Estado</label>

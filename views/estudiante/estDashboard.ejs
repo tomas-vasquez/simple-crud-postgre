@@ -1,7 +1,301 @@
 <%- include("../header"); %>
-    <h1>Dashboard</h1>
+<div class="col-12">
+  <div class="container text right">
+    <a href="/estudiante/logout" class="btn btn-danger btn-sm btn float-right">Logout</a>
+  </div>
+    <h2>Bienvenido a su dashboard estudiante <%= user %></h2>
+    
 
-    <a href="/estudiante">Logout</a>
+    <hr class="solid">
 
-    <h4>Hello <%= user %></h4>
-    <%- include("../footer"); %>
+    <form method="POST" action="/estudiante/fDocenteBuscar">
+     <div>
+        <h2>Docentes</h2>
+        <div>
+            <select class="btn btn-light dropdown-toggle" data-style="btn-info" name="docente">
+                <optgroup label="Select">
+                    <option value="">Seleccione docente</option>
+                    <% docentes.forEach(docentes => { %>
+                    <option value="<%= docentes.codigod %>"><%= docentes.nombres %> <%= docentes.apellidop %> <%= docentes.apellidom %></option>
+                    <% }) %>
+                </optgroup>
+            </select>
+        </div>
+        <div>
+            <input type="submit" class = "btn btn-info btn-sm" value="Ver Horario" />
+        </div>
+     </div>        
+   </form>
+
+<hr class="solid">   
+
+<div class="container">
+<h2>Ingeniería Informática</h2>
+ <div class="row">
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="187" name="codigoc" type="hidden">
+    <input value="3" name="planc" type="hidden">
+    <input value="SEM1" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Primer Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="187" name="codigoc" type="hidden">
+    <input value="3" name="planc" type="hidden">
+    <input value="SEM2" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Segundo Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="187" name="codigoc" type="hidden">
+    <input value="3" name="planc" type="hidden">
+    <input value="SEM3" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Tercer Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="187" name="codigoc" type="hidden">
+    <input value="3" name="planc" type="hidden">
+    <input value="SEM4" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Cuarto Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="187" name="codigoc" type="hidden">
+    <input value="3" name="planc" type="hidden">
+    <input value="SEM5" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Quinto Semestre</button>
+    </div>
+  </form>
+ </div>
+ <div class="row">
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="187" name="codigoc" type="hidden">
+      <input value="3" name="planc" type="hidden">
+      <input value="SEM6" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Sexto Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="187" name="codigoc" type="hidden">
+      <input value="3" name="planc" type="hidden">
+      <input value="SEM7" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Septimo Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="187" name="codigoc" type="hidden">
+      <input value="3" name="planc" type="hidden">
+      <input value="SEM8" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Octavo Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="187" name="codigoc" type="hidden">
+      <input value="3" name="planc" type="hidden">
+      <input value="SEM9" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Noveno Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="187" name="codigoc" type="hidden">
+      <input value="3" name="planc" type="hidden">
+      <input value="SEM10" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Decimo Semestre</button>
+      </div>
+    </form>
+   </div>
+</div>
+
+
+<hr class="solid">   
+<div class="container">
+<h2>Contaduría Pública</h2>
+ <div class="row">
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="105" name="codigoc" type="hidden">
+    <input value="5" name="planc" type="hidden">
+    <input value="SEM1" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Primer Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="105" name="codigoc" type="hidden">
+    <input value="5" name="planc" type="hidden">
+    <input value="SEM2" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Segundo Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="105" name="codigoc" type="hidden">
+    <input value="5" name="planc" type="hidden">
+    <input value="SEM3" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Tercer Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="105" name="codigoc" type="hidden">
+    <input value="5" name="planc" type="hidden">
+    <input value="SEM4" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Cuarto Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="105" name="codigoc" type="hidden">
+    <input value="5" name="planc" type="hidden">
+    <input value="SEM5" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Quinto Semestre</button>
+    </div>
+  </form>
+ </div>
+ <div class="row">
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="105" name="codigoc" type="hidden">
+      <input value="5" name="planc" type="hidden">
+      <input value="SEM6" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Sexto Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="105" name="codigoc" type="hidden">
+      <input value="5" name="planc" type="hidden">
+      <input value="SEM7" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Septimo Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="105" name="codigoc" type="hidden">
+      <input value="5" name="planc" type="hidden">
+      <input value="SEM8" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Octavo Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="105" name="codigoc" type="hidden">
+      <input value="5" name="planc" type="hidden">
+      <input value="SEM9" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Noveno Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="105" name="codigoc" type="hidden">
+      <input value="5" name="planc" type="hidden">
+      <input value="SEM10" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Decimo Semestre</button>
+      </div>
+    </form>
+   </div>
+</div>
+
+<hr class="solid">   
+<div class="container">
+<h2>Ingeniería en Agua</h2>
+ <div class="row">
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="147" name="codigoc" type="hidden">
+    <input value="2" name="planc" type="hidden">
+    <input value="SEM1" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Primer Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="147" name="codigoc" type="hidden">
+    <input value="2" name="planc" type="hidden">
+    <input value="SEM2" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Segundo Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="147" name="codigoc" type="hidden">
+    <input value="2" name="planc" type="hidden">
+    <input value="SEM3" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Tercer Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="147" name="codigoc" type="hidden">
+    <input value="2" name="planc" type="hidden">
+    <input value="SEM4" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Cuarto Semestre</button>
+    </div>
+  </form>
+  <form method="post" action="/estudiante/fSemestreHorario">
+    <input value="147" name="codigoc" type="hidden">
+    <input value="2" name="planc" type="hidden">
+    <input value="SEM5" name="semestre" type="hidden">
+    <div class="form-group">
+        <button class="btn btn-success">Quinto Semestre</button>
+    </div>
+  </form>
+ </div>
+ <div class="row">
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="147" name="codigoc" type="hidden">
+      <input value="2" name="planc" type="hidden">
+      <input value="SEM6" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Sexto Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="147" name="codigoc" type="hidden">
+      <input value="2" name="planc" type="hidden">
+      <input value="SEM7" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Septimo Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="147" name="codigoc" type="hidden">
+      <input value="2" name="planc" type="hidden">
+      <input value="SEM8" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Octavo Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="147" name="codigoc" type="hidden">
+      <input value="2" name="planc" type="hidden">
+      <input value="SEM9" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Noveno Semestre</button>
+      </div>
+    </form>
+    <form method="post" action="/estudiante/fSemestreHorario">
+      <input value="147" name="codigoc" type="hidden">
+      <input value="2" name="planc" type="hidden">
+      <input value="SEM10" name="semestre" type="hidden">
+      <div class="form-group">
+          <button class="btn btn-success">Decimo Semestre</button>
+      </div>
+    </form>
+   </div>
+</div>
+
+
+</div>
+<%- include("../footer"); %>

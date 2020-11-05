@@ -1,14 +1,14 @@
 <%- include("../header"); %>
-    <h1>Register</h1>
-
-    
-    <form action="/encargado/encRegistro" method="POST">
+<h1>Registro⠀⠀⠀</h1>
+<form action="/encargado/encRegistro" method="POST">
+  
       <div>
         <input 
         type="text" 
         id="nombreEncargado" 
         name="nombreEncargado" 
         placeholder="Nombres" 
+        class = "form-control"
         required />
       </div>
       <div>
@@ -17,6 +17,7 @@
           id="apellidoPEncargado"
           name="apellidoPEncargado"
           placeholder="Apellido Paterno"
+          class = "form-control"
           required
         />
       </div>
@@ -26,6 +27,7 @@
           id="apellidoMEncargado"
           name="apellidoMEncargado"
           placeholder="Apellido Materno"
+          class = "form-control"
           required
         />
       </div>
@@ -35,6 +37,7 @@
           id="carnetEncargado"
           name="carnetEncargado"
           placeholder="Carnet de Identidad"
+          class = "form-control"
           required
         />
       </div>
@@ -44,6 +47,7 @@
           id="fechaNacEncargado"
           name="fechaNacEncargado"
           placeholder="Fecha de Nacimiento"
+          class = "form-control"
           required
         />
       </div>
@@ -53,6 +57,7 @@
           id="codEncargado"
           name="codEncargado"
           placeholder="Codigo"
+          class = "form-control"
           required
         />
       </div>
@@ -62,6 +67,7 @@
           id="password"
           name="password"
           placeholder="Contraseña"
+          class = "form-control"
           required
         />
       </div>
@@ -71,13 +77,23 @@
           id="password2"
           name="password2"
           placeholder="Confirmar Contraseña"
+          class = "form-control"
           required
         />
       </div>
-      <div>
-        <input type="submit" value="Registrar" />
-      </div>
-
-      <a href="/encargado">Ya registrado? Ingrese aquí</a>
+      <div class="input-group-prepend">
+         <div>
+           <input type="submit" class ="btn btn-primary btn-sm" value="Registrar" />
+         </div>
+         <div>
+           <a href="/encargado" class = "btn btn-outline-primary btn-sm">Ya registrado? Ingrese aquí</a>
+         </div>
+       </div>
     </form>
-    <%- include("../footer"); %>
+    <ul>
+      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+      <li><%= error.message %></li>
+      <% }) %> <% } %>
+    </ul>
+
+<%- include("../footer"); %>
