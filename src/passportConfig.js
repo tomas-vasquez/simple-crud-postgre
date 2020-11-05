@@ -1,20 +1,21 @@
 const LocalStrategy = require("passport-local").Strategy;
-const { pool } = require("./dbConfig");
+const conexion = require("./dbConfig");
 const bcrypt = require("bcrypt");
 
 function initialize(passport) {
-console.log("Initialized");
+  console.log("Initialized");
 
-const authenticateUser = (codigo, password, done) => {
-    console.log(codigo, password);
-    pool.query(
+  const authenticateUser = (codigo, password, done) => {
+    // console.log(codigo, password);
+    conexion.query(
       `SELECT * FROM usuario WHERE idusuario = $1`,
       [codigo],
       (err, results) => {
         if (err) {
-          throw err;
+          return done(null, false, {
+            message: err.message,
+          });
         }
-        console.log(results.rows);
 
         if (results.rows.length > 0) {
           const user = results.rows[0];
@@ -33,7 +34,7 @@ const authenticateUser = (codigo, password, done) => {
         } else {
           // No user
           return done(null, false, {
-            message: "No se encuentra al usuario con ese codigo"
+            message: "No se encuentra al usuario con ese codigo",
           });
         }
       }
@@ -56,13 +57,17 @@ const authenticateUser = (codigo, password, done) => {
   // The fetched object is attached to the request object as req.user
 
   passport.deserializeUser((id, done) => {
-    pool.query(`SELECT * FROM usuario WHERE idusuario = $1`, [id], (err, results) => {
-      if (err) {
-        return done(err);
+    conexion.query(
+      `SELECT * FROM usuario WHERE idusuario = $1`,
+      [id],
+      (err, results) => {
+        if (err) {
+          return done(err);
+        }
+        console.log(`El ID del usuario es ${results.rows[0].idusuario}`);
+        return done(null, results.rows[0]);
       }
-      console.log(`El ID del usuario es ${results.rows[0].idusuario}`);
-      return done(null, results.rows[0]);
-    });
+    );
   });
 }
 
